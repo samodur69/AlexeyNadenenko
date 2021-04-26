@@ -27,7 +27,7 @@ public class CalcSumLongTest {
     @Test(description = "sum of two max long numbers",
             dataProviderClass = DataProviders.class,
             dataProvider = "max long numbers")
-    public void negativeSumTest(long a, long b) {
+    public void maxLongNumbersSumTest(long a, long b) {
         long result = calculator.sum(a, b);
         long expected = -2;
         Assert.assertEquals(result, expected, "Sum with memory overflow incorrect");
