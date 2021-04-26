@@ -3,13 +3,12 @@
 <suite name="Homework_1">
     <test name="Homework_1">
         <classes>
-            <!--        <class name=""></class>-->
+            <class name="ru.training.at.hw1.CalcSumLongTest">
+                <methods>
+                    <include name="positiveSumTest"/>
+                    <include name="maxLongNumbersSumTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
-    <!--        <classes>-->
-    <!--            <class name="service.ExaminationRecordsServiceTest">-->
-    <!--                <methods>-->
-    <!--                    <include name="testCreateRandomExamRecordsForAll"/>-->
-    <!--                </methods>-->
-    <!--            </class>-->
 </suite>
