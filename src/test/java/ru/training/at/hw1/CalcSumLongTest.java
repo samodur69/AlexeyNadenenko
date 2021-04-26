@@ -15,11 +15,22 @@ public class CalcSumLongTest {
         calculator = new Calculator();
     }
 
-    @Test (description = "sum of two long numbers")
-    public void positiveSumTest() {
-        long result = calculator.sum(10000L, 100000L);
-        long expected = 110000L;
+    @Test(description = "sum of two long numbers",
+            dataProviderClass = DataProviders.class,
+            dataProvider = "correct Long Numbers")
+    public void positiveSumTest(long a, long b) {
+        long result = calculator.sum(a, b);
+        long expected = a + b;
         Assert.assertEquals(result, expected, "sum of two long numbers incorrect");
+    }
+
+    @Test(description = "sum of two max long numbers",
+            dataProviderClass = DataProviders.class,
+            dataProvider = "max long numbers")
+    public void negativeSumTest(long a, long b) {
+        long result = calculator.sum(a, b);
+        long expected = -2;
+        Assert.assertEquals(result, expected, "Sum with memory overflow incorrect");
     }
 
     @AfterClass
