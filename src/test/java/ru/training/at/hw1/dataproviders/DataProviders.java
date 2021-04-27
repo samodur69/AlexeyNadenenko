@@ -16,12 +16,17 @@ public class DataProviders {
 
     @DataProvider(name = "max long numbers", parallel = true)
     public static Object[][] maxLongNumbers() {
-        return new Object[][]{{9223372036854775807L, -9223372036854775808L}};
+        return new Object[][]{{9223372036854775807L, 9223372036854775807L}};
+    }
+
+    @DataProvider(name = "min long numbers", parallel = true)
+    public static Object[][] minLongNumbers() {
+        return new Object[][]{{-9223372036854775808L, 9223372036854775807L}};
     }
 
     @DataProvider(name = "max double numbers", parallel = true)
     public static Object[][] maxDoubleNumbers() {
-        return new Object[][]{{4.9e-324, 1.7e+308}};
+        return new Object[][]{{1.7e+308, 1.7e+308}, {4.9e-324, 4.9e-324}};
     }
 
     @DataProvider(name = "long numbers for division by zero")
@@ -42,5 +47,10 @@ public class DataProviders {
     @DataProvider(name = "for division zero by double numbers")
     public static Object[][] doubleForDivisionZero() {
         return new Object[][]{{0, 1}, {0, 1.7e+308}};
+    }
+
+    @DataProvider(name = "sqrt double numbers")
+    public static Object[][] doubleForSqrt() {
+        return new Object[][]{{9}, {-36}, {3.33}, {8}, {4.9e-324}, {1.7e+308}, {0}, {-121}};
     }
 }
