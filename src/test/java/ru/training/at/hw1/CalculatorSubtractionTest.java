@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.training.at.hw1.dataproviders.DataProviders;
 
-public class CalculatorSubTest {
+public class CalculatorSubtractionTest {
 
     Calculator calculator;
 
@@ -18,8 +18,8 @@ public class CalculatorSubTest {
 
     @Test(description = "subtraction of two long numbers",
             dataProviderClass = DataProviders.class,
-            dataProvider = "correct Long Numbers")
-    public void regularSubTest(long a, long b) {
+            dataProvider = "regular Long Numbers")
+    public void regularLongSubTest(long a, long b) {
         long result = calculator.sub(a, b);
         long expected = a - b;
         Assert.assertEquals(result, expected, "subtraction of two long numbers incorrect");
@@ -27,17 +27,17 @@ public class CalculatorSubTest {
 
     @Test(description = "subtraction of two regular double numbers",
             dataProviderClass = DataProviders.class,
-            dataProvider = "correct Double Numbers")
-    public void regularSubTest(double a, double b) {
+            dataProvider = "regular Double Numbers")
+    public void regularDoubleSubTest(double a, double b) {
         double result = calculator.sub(a, b);
         double expected = a - b;
-        Assert.assertEquals(result, expected, "sub of two long numbers incorrect");
+        Assert.assertEquals(result, expected, 0.000001, "sub of two long numbers incorrect");
     }
 
     @Test(description = "subtraction of two min long numbers",
             dataProviderClass = DataProviders.class,
             dataProvider = "min long numbers")
-    public void maxLongNumbersSumTest(long a, long b) {
+    public void maxLongNumbersSubTest(long a, long b) {
         long result = calculator.sub(a, b);
         long expected = a - b;
         Assert.assertEquals(result, expected, "Sum with memory overflow incorrect");
@@ -46,10 +46,10 @@ public class CalculatorSubTest {
     @Test(description = "sub of two max double numbers",
             dataProviderClass = DataProviders.class,
             dataProvider = "max double numbers")
-    public void maxLongNumbersSumTest(double a, double b) {
+    public void maxDoubleNumbersSubTest(double a, double b) {
         double result = calculator.sub(a, b);
         double expected = a - b;
-        Assert.assertEquals(result, expected, "Sub with memory overflow incorrect");
+        Assert.assertEquals(result, expected, 0.000001, "Sub with memory overflow incorrect");
     }
 
     @AfterClass

@@ -18,8 +18,8 @@ public class CalculatorSumTest {
 
     @Test(description = "sum of two long numbers",
             dataProviderClass = DataProviders.class,
-            dataProvider = "correct Long Numbers")
-    public void regularSumTest(long a, long b) {
+            dataProvider = "regular Long Numbers")
+    public void regularLongSumTest(long a, long b) {
         long result = calculator.sum(a, b);
         long expected = a + b;
         Assert.assertEquals(result, expected, "sum of two long numbers incorrect");
@@ -27,11 +27,11 @@ public class CalculatorSumTest {
 
     @Test(description = "sum of two regular double numbers",
             dataProviderClass = DataProviders.class,
-            dataProvider = "correct Double Numbers")
-    public void regularSumTest(double a, double b) {
+            dataProvider = "regular Double Numbers")
+    public void regularDoubleSumTest(double a, double b) {
         double result = calculator.sum(a, b);
         double expected = a + b;
-        Assert.assertEquals(result, expected, "sum of two double numbers incorrect");
+        Assert.assertEquals(result, expected, 0.000001, "sum of two double numbers incorrect");
     }
 
     @Test(description = "sum of two max long numbers",
@@ -46,10 +46,10 @@ public class CalculatorSumTest {
     @Test(description = "sum of two max double numbers",
             dataProviderClass = DataProviders.class,
             dataProvider = "max double numbers")
-    public void maxLongNumbersSumTest(double a, double b) {
+    public void maxDoubleNumbersSumTest(double a, double b) {
         double result = calculator.sum(a, b);
         double expected = a + b;
-        Assert.assertEquals(result, expected, "Sum with memory overflow incorrect");
+        Assert.assertEquals(result, expected, 0.000001, "Sum with memory overflow incorrect");
     }
 
     @AfterClass

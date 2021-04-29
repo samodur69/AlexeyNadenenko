@@ -18,7 +18,7 @@ public class CalculatorDivisionTest {
 
     @Test(description = "regular division test",
             dataProviderClass = DataProviders.class,
-            dataProvider = "correct Long Numbers")
+            dataProvider = "regular Long Numbers")
     public void regularLongDivTest(long a, long b) {
         long actual = calculator.div(a, b);
         long expected = a / b;
@@ -41,16 +41,16 @@ public class CalculatorDivisionTest {
     public void zeroByLongDivTest(long a, long b) {
         long actual = calculator.div(a, b);
         long expected = 0;
-        Assert.assertEquals(actual, expected, "Incoorect division zero by number");
+        Assert.assertEquals(actual, expected, "Incorrect division zero by number");
     }
 
     @Test(description = "regular division test with double numbers",
             dataProviderClass = DataProviders.class,
-            dataProvider = "correct Double Numbers")
+            dataProvider = "regular Double Numbers")
     public void regularDoubleDivTest(double a, double b) {
         double actual = calculator.div(a, b);
         double expected = a / b;
-        Assert.assertEquals(actual, expected, "incorrect regular division with double numbers");
+        Assert.assertEquals(actual, expected, 0.000001, "incorrect double division");
     }
 
     @Test(description = "division double by Zero test",
@@ -59,7 +59,7 @@ public class CalculatorDivisionTest {
     public void divisionDoubleByZeroTest(double a, double b) {
         double actual = calculator.div(a, b);
         double expected = a / b;
-        Assert.assertEquals(actual, expected, "Wrong division double by Zero");
+        Assert.assertEquals(actual, expected, 0.000001, "Wrong division double by Zero");
     }
 
     @Test(description = "zero by double number division test",
@@ -68,9 +68,8 @@ public class CalculatorDivisionTest {
     public void zeroByDoubleDivTest(double a, double b) {
         double actual = calculator.div(a, b);
         double expected = 0;
-        Assert.assertEquals(actual, expected, "Incorrect division zero by double");
+        Assert.assertEquals(actual, expected, 0.000001, "Incorrect division zero by double");
     }
-
 
     @AfterClass
     public void calcTearDown() {
