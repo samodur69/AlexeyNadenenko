@@ -53,4 +53,9 @@ public class DataProviders {
     public static Object[][] doubleForSqrt() {
         return new Object[][]{{9}, {-36}, {3.33}, {8}, {4.9e-324}, {1.7e+308}, {0}, {-121}};
     }
+
+    @DataProvider(name = "multiply double numbers")
+    public static Object[][] doubleForMultiply() {
+        return new Object[][]{{9.1, 12.2}, {-36, 1.33}, {4.9e-324, 0}, {0, 1.7e+308}};
+    }
 }
