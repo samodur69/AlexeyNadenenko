@@ -22,7 +22,7 @@ public class CalculatorSqrtTest {
     public void sqrtTest(double a) {
         double result = calculator.sqrt(a);
         double expected = Math.sqrt(a);
-        Assert.assertEquals(result, expected, "sqrt incorrect. If num<0 result must be NaN");
+        Assert.assertEquals(result, expected, 0.000001, "sqrt func incorrect");
     }
 
     @AfterClass
