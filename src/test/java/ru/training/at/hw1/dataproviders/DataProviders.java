@@ -4,12 +4,12 @@ import org.testng.annotations.DataProvider;
 
 public class DataProviders {
 
-    @DataProvider(name = "correct Long Numbers", parallel = true)
+    @DataProvider(name = "regular Long Numbers", parallel = true)
     public static Object[][] correctLongNumbers() {
         return new Object[][]{{1000L, 10000L}, {-1L, 9999999999L}, {-20L, -10L}, {10, 5}, {33, 11}};
     }
 
-    @DataProvider(name = "correct Double Numbers", parallel = true)
+    @DataProvider(name = "regular Double Numbers", parallel = true)
     public static Object[][] correctDoubleNumbers() {
         return new Object[][]{{2.5, 2.1}, {4.9e-324, 3}, {-3.333333333, -3.333333333333}};
     }
