@@ -11,6 +11,81 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <encoding>UTF-8</encoding>
+        <!--        <testXml>${project.build.testSourceDirectory}/test-add_sub.xml</testXml>-->
+        <hw1_testsuites>${project.basedir}/src/test/resources/hw_1_testng_xml</hw1_testsuites>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>add_subtract</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testXml>${hw1_testsuites}/test-add_sub.xml</testXml>
+            </properties>
+        </profile>
+        <profile>
+            <id>multiply_division</id>
+            <properties>
+                <testXml>${hw1_testsuites}/test-multiply_division.xml</testXml>
+            </properties>
+        </profile>
+        <profile>
+            <id>other_tests</id>
+            <properties>
+                <testXml>${hw1_testsuites}/test-sqrt.xml</testXml>
+            </properties>
+        </profile>
+        <profile>
+            <id>all_tests</id>
+            <properties>
+                <testXml>${hw1_testsuites}/test-all_hw1.xml</testXml>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1.0</version>
+            <systemPath>${pom.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${testXml}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${encoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
