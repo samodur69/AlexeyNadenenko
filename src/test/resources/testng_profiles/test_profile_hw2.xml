@@ -4,45 +4,7 @@
     <test name="All Tests">
         <classes>
             <class name="ru.training.at.hw2.ex1.JdiElementsDisplayedTest"/>
+            <class name="ru.training.at.hw2.ex2.JdiElementsSelectTest"/>
         </classes>
-<!--        <classes>-->
-<!--            <class name="ru.training.at.hw1.CalculatorDivisionTest">-->
-<!--                <methods>-->
-<!--                    <include name="regularLongDivTest"/>-->
-<!--                    <include name="divisionLongBuZeroTest"/>-->
-<!--                    <include name="zeroByLongDivTest"/>-->
-<!--                    <include name="regularDoubleDivTest"/>-->
-<!--                    <include name="divisionDoubleByZeroTest"/>-->
-<!--                    <include name="zeroByDoubleDivTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="ru.training.at.hw1.CalculatorSqrtTest">-->
-<!--                <methods>-->
-<!--                    <include name="sqrtTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="ru.training.at.hw1.CalculatorSumTest">-->
-<!--                <methods>-->
-<!--                    <include name="regularLongSumTest"/>-->
-<!--                    <include name="regularDoubleSumTest"/>-->
-<!--                    <include name="maxLongNumbersSumTest"/>-->
-<!--                    <include name="maxDoubleNumbersSumTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="ru.training.at.hw1.CalculatorSubtractionTest">-->
-<!--                <methods>-->
-<!--                    <include name="regularLongSubTest"/>-->
-<!--                    <include name="regularDoubleSubTest"/>-->
-<!--                    <include name="maxLongNumberSubTest"/>-->
-<!--                    <include name="maxDoubleNumberSubTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="ru.training.at.hw1.CalculatorMultiplyTest">-->
-<!--                <methods>-->
-<!--                    <include name="regularLongMultiplyTest"/>-->
-<!--                    <include name="regularDoubleMultiplyTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
     </test>
 </suite>
