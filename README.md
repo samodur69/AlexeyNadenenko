@@ -15,3 +15,7 @@ Other tests (sqrt):
 Run all test:
 `mvn test -P all_tests`
 
+### Homework 2
+**Run Tests:**
+
+`mvn clean test -P HW2`
