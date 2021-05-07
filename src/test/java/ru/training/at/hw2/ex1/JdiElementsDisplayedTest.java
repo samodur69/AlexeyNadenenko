@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +15,7 @@ import ru.training.at.hw2.JdiTestData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class JdiElementsDisplayedTest {
 
@@ -22,6 +25,7 @@ public class JdiElementsDisplayedTest {
     public void browserSetUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
@@ -38,6 +42,8 @@ public class JdiElementsDisplayedTest {
         loginDropDownArrow.get(0).click();
         //  search for login input field
         WebElement loginInput = driver.findElement(By.id("name"));
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(loginInput));
         loginInput.sendKeys(JdiTestData.TEST_LOGIN);
         // search for password input field
         WebElement pswInput = driver.findElement(By.id("password"));
@@ -49,6 +55,8 @@ public class JdiElementsDisplayedTest {
         //  4. Assert Username is logged
         SoftAssert loginAssert = new SoftAssert();
         WebElement loggedUsername = driver.findElement(By.id("user-name"));
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(loggedUsername));
         loginAssert.assertTrue(loggedUsername.isDisplayed());
         loginAssert.assertEquals(loggedUsername.getText(), JdiTestData.TEST_USERNAME);
         loginAssert.assertAll("wrong username displayed when user logged");
