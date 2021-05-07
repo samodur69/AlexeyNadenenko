@@ -23,7 +23,7 @@ public class JdiElementsSelectTest {
     public void browserSetUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
@@ -40,6 +40,8 @@ public class JdiElementsSelectTest {
         loginDropDownArrow.get(0).click();
         //  search for login input field
         WebElement loginInput = driver.findElement(By.id("name"));
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(loginInput));
         loginInput.sendKeys(JdiTestData.TEST_LOGIN);
         // search for password input field
         WebElement pswInput = driver.findElement(By.id("password"));
@@ -51,6 +53,8 @@ public class JdiElementsSelectTest {
         //  4. Assert Username is logged
         SoftAssert loginAssert = new SoftAssert();
         WebElement loggedUsername = driver.findElement(By.id("user-name"));
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(loggedUsername));
         loginAssert.assertTrue(loggedUsername.isDisplayed());
         loginAssert.assertEquals(loggedUsername.getText(), JdiTestData.TEST_USERNAME);
         loginAssert.assertAll("wrong username displayed when user logged");
@@ -59,11 +63,15 @@ public class JdiElementsSelectTest {
         WebElement serviceDropDown = driver.findElement(By.linkText("Service"));
         serviceDropDown.click();
         WebElement diffElemItem = driver.findElement(By.linkText("Different elements"));
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(diffElemItem));
         diffElemItem.click();
 
         //  6. Select checkboxes Water & Wind
         List<WebElement> checkBoxes = driver
                 .findElements(By.xpath("//*[@class='label-checkbox']/input"));
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOfAllElements(checkBoxes));
         //  water checkbox
         checkBoxes.get(0).click();
         //  wind checkbox
@@ -74,9 +82,7 @@ public class JdiElementsSelectTest {
         List<WebElement> radio = driver
                 .findElements(By.xpath("//*[@class='label-radio']/input"));
         new WebDriverWait(driver, 10)
-                .until(ExpectedConditions
-                        .presenceOfAllElementsLocatedBy(By
-                                .xpath("//*[@class='label-radio']/input")));
+                .until(ExpectedConditions.visibilityOfAllElements(radio));
         radio.get(3).click();
         // here we can use for-each cycle to search by name
 
