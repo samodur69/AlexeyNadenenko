@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Homework_1">
+    <test name="Multiply and Division">
+        <classes>
+            <class name="ru.training.at.hw1.CalculatorDivisionTest">
+                <methods>
+                    <include name="regularLongDivTest"/>
+                    <include name="divisionLongBuZeroTest"/>
+                    <include name="zeroByLongDivTest"/>
+                    <include name="regularDoubleDivTest"/>
+                    <include name="divisionDoubleByZeroTest"/>
+                    <include name="zeroByDoubleDivTest"/>
+                </methods>
+            </class>
+            <class name="ru.training.at.hw1.CalculatorMultiplyTest">
+                <methods>
+                    <include name="regularLongMultiplyTest"/>
+                    <include name="regularDoubleMultiplyTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
