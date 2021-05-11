@@ -13,36 +13,48 @@
         <maven.compiler.target>8</maven.compiler.target>
         <java.version>1.8</java.version>
         <encoding>UTF-8</encoding>
-        <!--        <testXml>${project.build.testSourceDirectory}/test-add_sub.xml</testXml>-->
-        <hw1_testsuites>${project.basedir}/src/test/resources/hw_1_testng_xml</hw1_testsuites>
+        <testsuites>${project.basedir}/src/test/resources/testng_profiles</testsuites>
     </properties>
 
     <profiles>
         <profile>
             <id>add_subtract</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <testXml>${hw1_testsuites}/test-add_sub.xml</testXml>
+                <testXml>${testsuites}/test-add_sub.xml</testXml>
             </properties>
         </profile>
         <profile>
             <id>multiply_division</id>
             <properties>
-                <testXml>${hw1_testsuites}/test-multiply_division.xml</testXml>
+
+                <testXml>${testsuites}/test-multiply_division.xml</testXml>
             </properties>
         </profile>
         <profile>
             <id>other_tests</id>
             <properties>
-                <testXml>${hw1_testsuites}/test-sqrt.xml</testXml>
+
+                <testXml>${testsuites}/test-sqrt.xml</testXml>
             </properties>
         </profile>
         <profile>
-            <id>all_tests</id>
+            <id>all_tests_hw1</id>
             <properties>
-                <testXml>${hw1_testsuites}/test-all_hw1.xml</testXml>
+                <testXml>${testsuites}/test-all_hw1.xml</testXml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testXml>${testsuites}/test_profile_hw2.xml</testXml>
             </properties>
         </profile>
     </profiles>
@@ -60,6 +72,11 @@
             <artifactId>testng</artifactId>
             <version>7.4.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
         </dependency>
     </dependencies>
 
