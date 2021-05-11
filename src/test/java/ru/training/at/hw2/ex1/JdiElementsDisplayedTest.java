@@ -37,9 +37,9 @@ public class JdiElementsDisplayedTest {
         Assert.assertEquals(driver.getTitle(), "Home Page", "wrong browser title");
 
         //  3. Perform login. Click to empty profile photo to open dropdown
-        List<WebElement> loginDropDownArrow = driver
-                .findElements(By.xpath("//a[@class='dropdown-toggle']/*[@class='profile-photo']"));
-        loginDropDownArrow.get(0).click();
+        WebElement loginDropDownArrow = driver
+                .findElement(By.id("user-icon"));
+        loginDropDownArrow.click();
         //  search for login input field
         WebElement loginInput = driver.findElement(By.id("name"));
         new WebDriverWait(driver, 10)
@@ -91,7 +91,7 @@ public class JdiElementsDisplayedTest {
         try {
             driver.switchTo().frame("frame");
             Assert.assertTrue(driver
-                    .findElement(By.xpath("//div[@class='card-body']/*[@class='btn btn-info']"))
+                    .findElement(By.id("frame-button"))
                     .isDisplayed());
         } finally {
             //  10. Switch to original window back
