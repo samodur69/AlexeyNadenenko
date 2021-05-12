@@ -19,3 +19,8 @@ Run all test:
 **Run Tests:**
 
 `mvn clean test -P HW2`
+
+### Homework 3
+**Run Tests:**
+
+`mvn clean test -P HW3`
