@@ -12,7 +12,7 @@ public class JdiLeftMenu extends BasePage {
     @FindBy(xpath = "//*[@class='sidebar-menu left']/child::li")
     List<WebElement> leftMenu;
 
-    public JdiLeftMenu (WebDriver driver) {
+    public JdiLeftMenu(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);

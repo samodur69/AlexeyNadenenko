@@ -1,9 +1,8 @@
-package ru.training.at.hw3.tests.ex1;
+package ru.training.at.hw3.ex1;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import ru.training.at.hw3.pageobjects.JdiMainPage;
-import ru.training.at.hw3.tests.BaseTest;
+import ru.training.at.hw3.BaseTest;
 import java.util.Arrays;
 import java.util.List;
 

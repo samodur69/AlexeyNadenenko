@@ -25,6 +25,7 @@ public class JdiDifferentPage extends BasePage {
     List<WebElement> logItems;
 
     WebDriver driver;
+
     public JdiDifferentPage(WebDriver driver) {
         super(driver);
         this.driver = driver;

@@ -1,4 +1,4 @@
-package ru.training.at.hw3.tests;
+package ru.training.at.hw3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public abstract class BaseTest {
 
     protected JdiMainPage mainPage;
     protected Properties prop;

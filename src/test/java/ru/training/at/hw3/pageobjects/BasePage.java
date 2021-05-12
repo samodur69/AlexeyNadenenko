@@ -11,7 +11,7 @@ abstract class BasePage {
     WebDriver driver;
 
     public BasePage(WebDriver driver) {
-//        driver = new DriverManager().setupDriver();
+        //        driver = new DriverManager().setupDriver();
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -28,10 +28,5 @@ abstract class BasePage {
             }
         }
         return result;
-    }
-
-    public void closeDriver() {
-        driver.quit();
-        driver = null;
     }
 }

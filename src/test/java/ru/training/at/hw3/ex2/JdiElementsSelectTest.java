@@ -1,10 +1,11 @@
-package ru.training.at.hw3.tests.ex2;
+package ru.training.at.hw3.ex2;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ru.training.at.hw3.pageobjects.JdiDifferentPage;
 import ru.training.at.hw3.pageobjects.JdiMainPage;
-import ru.training.at.hw3.tests.BaseTest;
+import ru.training.at.hw3.BaseTest;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -12,6 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 public class JdiElementsSelectTest extends BaseTest {
 
+    WebDriver driver;
     private JdiMainPage mainPage;
     private JdiDifferentPage diffPage;
 
