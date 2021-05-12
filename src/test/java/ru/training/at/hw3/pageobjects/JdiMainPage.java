@@ -1,11 +1,9 @@
-package ru.training.at.hw3.page_object;
+package ru.training.at.hw3.pageobjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class JdiMainPage extends BasePage {
@@ -37,8 +35,8 @@ public class JdiMainPage extends BasePage {
     @FindBy(xpath = "//div[@class='card-body']/*[@class='btn btn-info']")
     WebElement buttonSubmit;
 
-    private JdiHeaderMenu headerMenu;
-    private JdiLeftMenu leftMenu;
+    private final JdiHeaderMenu headerMenu;
+    private final JdiLeftMenu leftMenu;
 
     public JdiMainPage() {
         super();

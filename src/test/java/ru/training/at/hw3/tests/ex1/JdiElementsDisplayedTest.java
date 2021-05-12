@@ -1,7 +1,7 @@
 package ru.training.at.hw3.tests.ex1;
 
 import org.testng.annotations.Test;
-import ru.training.at.hw3.page_object.JdiMainPage;
+import ru.training.at.hw3.pageobjects.JdiMainPage;
 import ru.training.at.hw3.tests.BaseTest;
 import java.util.Arrays;
 import java.util.List;

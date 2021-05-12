@@ -1,13 +1,11 @@
 package ru.training.at.hw3.tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 import ru.training.at.hw3.Utils.DriverManager;
-import ru.training.at.hw3.page_object.JdiMainPage;
-
+import ru.training.at.hw3.pageobjects.JdiMainPage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -32,11 +30,6 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void browserTearDown() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         DriverManager.closeBrowser();
     }
 
