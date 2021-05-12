@@ -3,6 +3,7 @@ package ru.training.at.hw3.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
@@ -43,6 +44,7 @@ public class JdiMainPage extends BasePage {
     public JdiMainPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
+        PageFactory.initElements(driver, this);
         headerMenu = new JdiHeaderMenu(driver);
         leftMenu = new JdiLeftMenu(driver);
     }
