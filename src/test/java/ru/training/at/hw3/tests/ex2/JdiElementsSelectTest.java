@@ -39,10 +39,10 @@ public class JdiElementsSelectTest extends BaseTest {
 
     @Test (dependsOnMethods = "navigateToDiffPage")
     public void selectNecessaryItemsAndAssertLogTest() {
-        diffPage.checkBoxSelect("Water");
-        diffPage.checkBoxSelect("Wind");
-        diffPage.radioSelect("Selen");
-        diffPage.dropdownColorSelect("Yellow");
+        diffPage.checkBoxSelect(prop.getProperty("checkbox1"));
+        diffPage.checkBoxSelect(prop.getProperty("checkbox2"));
+        diffPage.radioSelect(prop.getProperty("radio1"));
+        diffPage.dropdownColorSelect(prop.getProperty("colorDropdown"));
 
         List<String> actual = diffPage.getLogItems();
 
