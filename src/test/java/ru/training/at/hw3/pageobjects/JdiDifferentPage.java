@@ -1,7 +1,9 @@
 package ru.training.at.hw3.pageobjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,8 +24,11 @@ public class JdiDifferentPage extends BasePage {
     @FindBy(xpath = "//*[@class='panel-body-list logs']/li")
     List<WebElement> logItems;
 
-    public JdiDifferentPage() {
-        super();
+    WebDriver driver;
+    public JdiDifferentPage(WebDriver driver) {
+        super(driver);
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public String getTitleOfPage() {

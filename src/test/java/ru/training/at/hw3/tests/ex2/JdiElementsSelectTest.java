@@ -17,7 +17,7 @@ public class JdiElementsSelectTest extends BaseTest {
 
     @Test
     public void openPageAndCheckTitleTest() {
-        mainPage = new JdiMainPage();
+        mainPage = new JdiMainPage(driver);
         mainPage.openPage();
         assertTrue(mainPage.checkTitle(prop.getProperty("homepage_title")), "wrong title");
     }
@@ -31,7 +31,7 @@ public class JdiElementsSelectTest extends BaseTest {
     @Test (dependsOnMethods = "loginAndCheckLoggedUser")
     public void navigateToDiffPage() {
         mainPage.getHeaderMenu().clickHeaderServiceMenuItem("DIFFERENT ELEMENTS");
-        diffPage = new JdiDifferentPage();
+        diffPage = new JdiDifferentPage(driver);
         //  Web driver wait in getTitleOfPage Method. This is not correct, but working
         //  Better to use JS command
         assertEquals(diffPage.getTitleOfPage(), "Different Elements");

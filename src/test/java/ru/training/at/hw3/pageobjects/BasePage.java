@@ -3,7 +3,6 @@ package ru.training.at.hw3.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import ru.training.at.hw3.Utils.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +10,9 @@ abstract class BasePage {
 
     WebDriver driver;
 
-    public BasePage() {
-        driver = new DriverManager().setupDriver();
+    public BasePage(WebDriver driver) {
+//        driver = new DriverManager().setupDriver();
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

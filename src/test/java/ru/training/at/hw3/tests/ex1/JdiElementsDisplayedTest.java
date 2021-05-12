@@ -1,5 +1,6 @@
 package ru.training.at.hw3.tests.ex1;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import ru.training.at.hw3.pageobjects.JdiMainPage;
 import ru.training.at.hw3.tests.BaseTest;
@@ -13,7 +14,7 @@ public class JdiElementsDisplayedTest extends BaseTest {
 
     @Test
     public void openPageAndCheckTitleTest() {
-        mainPage = new JdiMainPage();
+        mainPage = new JdiMainPage(driver);
         mainPage.openPage();
         assertTrue(mainPage.checkTitle(prop.getProperty("homepage_title")), "wrong title");
     }
