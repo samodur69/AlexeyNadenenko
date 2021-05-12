@@ -37,28 +37,31 @@ public class JdiMainPage extends BasePage {
     @FindBy(xpath = "//div[@class='card-body']/*[@class='btn btn-info']")
     WebElement buttonSubmit;
 
-    @FindBy(xpath = "//*[@class='sidebar-menu left']/child::li")
-    List<WebElement> leftMenu;
-
+    private JdiHeaderMenu headerMenu;
+    private JdiLeftMenu leftMenu;
 
     public JdiMainPage() {
         super();
+        headerMenu = new JdiHeaderMenu(driver);
+        leftMenu = new JdiLeftMenu(driver);
     }
 
     public void openPage() {
-        driver.get(prop.getProperty("TEST_URL"));
+        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
     }
 
-    public void logIn() {
+    public void logIn(String username, String password) {
         profilePhoto.click();
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOf(profilePhoto));
-        loginInput.sendKeys(prop.getProperty("LOGIN"));
-        pswInput.sendKeys(prop.getProperty("PSW"));
+        loginInput.sendKeys(username);
+        pswInput.sendKeys(password);
         submitButton.click();
     }
 
     public String getLoggedUserName() {
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(loggedUsername));
         if (loggedUsername.isDisplayed()) {
             return loggedUsername.getText();
         } else {
@@ -66,24 +69,12 @@ public class JdiMainPage extends BasePage {
         }
     }
 
-    public boolean compareHeaderMenuItems(List<String> expected) {
-        return webElComparator(headerMenu, expected);
-    }
-
-    public void clickHeaderMenuItem(String item) {
-        for (WebElement el : headerMenu) {
-            if (el.getText().equals(item)) {
-                el.click();
-            }
-        }
-    }
-
     public int countBenefitIcons() {
         return benefitsIcons.size();
     }
 
-    public boolean checkBenefitTexts(List<String> expected) {
-        return webElComparator(benefitsText, expected);
+    public List<String> getBenefitsTexts() {
+        return getTextFromVisibleElements(benefitsText);
     }
 
     public boolean checkFrameIsDisplayed() {
@@ -102,22 +93,11 @@ public class JdiMainPage extends BasePage {
         return false;
     }
 
-    public boolean compareLeftMenuItems(List<String> expected) {
-        return webElComparator(leftMenu, expected);
+    public JdiHeaderMenu getHeaderMenu() {
+        return headerMenu;
     }
 
-
-    private boolean webElComparator(List<WebElement> actual, List<String> expected) {
-        if (actual.size() != expected.size()) {
-            return false;
-        }
-        List<String> actualText = new ArrayList<>();
-        for (WebElement el : actual) {
-            if (!el.isDisplayed()) {
-                return false;
-            }
-            actualText.add(el.getText());
-        }
-        return actualText.containsAll(expected);
+    public JdiLeftMenu getLeftMenu() {
+        return leftMenu;
     }
 }
