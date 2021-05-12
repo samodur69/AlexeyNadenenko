@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public final class DriverManager {
 
-    public static WebDriver driver;
+    private static WebDriver driver;
 
     public static WebDriver setupDriver() {
         if (driver == null) {
@@ -19,4 +19,10 @@ public final class DriverManager {
         }
         return driver;
     }
+
+    public static void closeBrowser() {
+        driver.quit();
+        driver = null;
+    }
+
 }
