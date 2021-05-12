@@ -30,7 +30,7 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void browserTearDown() {
-        DriverManager.closeBrowser();
+        mainPage.closeDriver();
     }
 
     protected void listElementsComparator(List<String> actual, List<String> expected, String item) {

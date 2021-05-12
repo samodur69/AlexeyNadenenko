@@ -1,18 +1,15 @@
-package ru.training.at.hw3.page_object;
+package ru.training.at.hw3.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import ru.training.at.hw3.Utils.DriverManager;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 abstract class BasePage {
 
     WebDriver driver;
-    Properties prop;
 
     public BasePage() {
         driver = new DriverManager().setupDriver();
@@ -31,5 +28,10 @@ abstract class BasePage {
             }
         }
         return result;
+    }
+
+    public void closeDriver() {
+        driver.quit();
+        driver = null;
     }
 }

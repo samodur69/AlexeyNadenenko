@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 public final class DriverManager {
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
-    public static WebDriver setupDriver() {
+    public WebDriver setupDriver() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
@@ -20,10 +20,4 @@ public final class DriverManager {
         }
         return driver;
     }
-
-    public static void closeBrowser() {
-        driver.quit();
-        driver = null;
-    }
-
 }
