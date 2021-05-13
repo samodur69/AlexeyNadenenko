@@ -1,5 +1,6 @@
 package ru.training.at.hw4.pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,7 @@ public class JdiDifferentPage extends BasePage {
         return driver.getTitle();
     }
 
+    @Step(value = "Select checkbox with value {item}")
     public void checkBoxSelect(String item) {
         for (WebElement el : checkBoxes) {
             if (el.getText().equals(item)) {
@@ -47,6 +49,7 @@ public class JdiDifferentPage extends BasePage {
         }
     }
 
+    @Step(value = "Select radio checkbox with value {item}")
     public void radioSelect(String item) {
         for (WebElement el : radioBoxes) {
             if (el.getText().equals(item)) {
@@ -55,11 +58,13 @@ public class JdiDifferentPage extends BasePage {
         }
     }
 
+    @Step(value = "Select from dropdown selector value {item}")
     public void dropdownColorSelect(String item) {
         Select colors = new Select(colorSelect);
         colors.selectByVisibleText(item);
     }
 
+    @Step(value = "Get UI log from page")
     public List<String> getLogItems() {
         List<String> log = new ArrayList<>();
         new WebDriverWait(driver, 10)

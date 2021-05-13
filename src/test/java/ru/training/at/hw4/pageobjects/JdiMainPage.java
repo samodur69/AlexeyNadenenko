@@ -1,5 +1,6 @@
 package ru.training.at.hw4.pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,10 +51,12 @@ public class JdiMainPage extends BasePage {
         leftMenu = new JdiLeftMenu(driver);
     }
 
+    @Step(value = "Open Main page")
     public void openPage() {
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
     }
 
+    @Step(value = "Login to system with username:{username} and password:{password}")
     public void logIn(String username, String password) {
         profilePhoto.click();
         new WebDriverWait(driver, 10)
@@ -81,10 +84,12 @@ public class JdiMainPage extends BasePage {
         return getTextFromVisibleElements(benefitsText);
     }
 
+    @Step(value = "Check if frame exist")
     public boolean checkFrameIsDisplayed() {
         return frame.isDisplayed();
     }
 
+    @Step(value = "Switch to frame and check that button exist")
     public boolean switchToFrameAndCheckButton() {
         try {
             driver.switchTo().frame(frame);

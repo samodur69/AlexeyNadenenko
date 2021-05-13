@@ -1,5 +1,6 @@
 package ru.training.at.hw4.pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,6 +34,7 @@ public class JdiHeaderMenu extends BasePage {
         return getTextFromVisibleElements(headerTopLevelMenu);
     }
 
+    @Step(value = "Click in header to {item} menu item")
     public void clickHeaderServiceMenuItem(String item) {
         headerSubMenuOpener.click();
         new WebDriverWait(driver, 10)
