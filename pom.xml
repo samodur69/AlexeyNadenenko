@@ -51,10 +51,19 @@
         <profile>
             <id>HW2</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <testXml>${testsuites}/test_profile_hw2.xml</testXml>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW3</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testXml>${testsuites}/test_profile_hw3.xml</testXml>
             </properties>
         </profile>
     </profiles>
@@ -77,6 +86,11 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
         </dependency>
     </dependencies>
 
