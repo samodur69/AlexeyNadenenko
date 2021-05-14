@@ -11,14 +11,17 @@ public class ScreenshotMaker implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        WebDriver webDriver = (WebDriver) result.getTestContext().getAttribute("driver");
-        attachScreenshot(webDriver);
+        WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+        saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
     }
 
-    @Attachment(type = "image/png", fileExtension = ".png")
-    public byte[] attachScreenshot(WebDriver webDriver) {
-        return ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+    //    @Attachment(type = "image/png", fileExtension = ".png")
+    //    public byte[] attachScreenshot(WebDriver webDriver) {
+    //        return ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+    //    }
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
     }
-
-
 }
