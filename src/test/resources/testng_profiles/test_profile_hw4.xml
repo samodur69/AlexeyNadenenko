@@ -3,8 +3,8 @@
 <suite name="Homework_4-All_Tests" parallel="false">
     <test name="Homework4">
         <classes>
-            <class name="ru.training.at.hw4.ex1.JdiElementsDisplayedTest"/>
-            <class name="ru.training.at.hw4.ex2.JdiElementsSelectTest"/>
+            <class name="ru.training.at.hw4.tests.ExerciseOneTest"/>
+<!--            <class name="ru.training.at.hw4.tests.ExerciseTwoTest"/>-->
         </classes>
     </test>
 </suite>

@@ -61,7 +61,7 @@
         <profile>
             <id>HW3</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <testXml>${testsuites}/test_profile_hw3.xml</testXml>
