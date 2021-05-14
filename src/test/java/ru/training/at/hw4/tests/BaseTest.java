@@ -30,12 +30,13 @@ public abstract class BaseTest {
 
     @Step(value = "Browser setup, read properties")
     @BeforeClass(alwaysRun = true)
-    public void browserSetUp() {
+    public void browserSetUp(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        context.setAttribute("driver", "chrome");
         try {
             FileInputStream fi =
                     new FileInputStream("src/test/java/ru/training/at/hw3/testData.properties");
