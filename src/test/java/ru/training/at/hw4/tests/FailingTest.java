@@ -29,11 +29,12 @@ public class FailingTest extends BaseTest {
         navigateToDiffPage("Different Elements");
 
         // select items
+        // point to crash
         selectNecessaryItems(
                 prop.getProperty("checkbox1"),
                 prop.getProperty("checkbox2"),
                 prop.getProperty("radio1"),
-                prop.getProperty("colorDropdown"));
+                "black");
 
         // verify log... Hardcoded regexp
         checkLogItems();
@@ -67,7 +68,7 @@ public class FailingTest extends BaseTest {
         logAssert.assertTrue(actual.size() == 4);
         logAssert.assertTrue(actual.get(0).matches(".*(Colors).*(Yellow)"));
         logAssert.assertTrue(actual.get(1).matches(".*(metal).*(Selen)"));
-        logAssert.assertTrue(actual.get(2).matches(".*(Fire).*(true)"));
+        logAssert.assertTrue(actual.get(2).matches(".*(Wind).*(true)"));
         logAssert.assertTrue(actual.get(3).matches(".*(Water).*(true)"));
         logAssert.assertAll("wrong logs found");
     }
