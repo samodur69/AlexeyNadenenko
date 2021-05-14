@@ -23,7 +23,7 @@ public class FailingTest extends BaseTest {
         openPageAndCheckTitle(prop.getProperty("homepage_title"));
         loginAndCheckLoggedUser(
                 prop.getProperty("LOGIN"),
-                prop.getProperty("PSW"),
+                "1234",
                 prop.getProperty("USERNAME"));
 
         navigateToDiffPage("Different Elements");
@@ -34,7 +34,7 @@ public class FailingTest extends BaseTest {
                 prop.getProperty("checkbox1"),
                 prop.getProperty("checkbox2"),
                 prop.getProperty("radio1"),
-                "Red");
+                prop.getProperty("colorDropdown"));
 
         // verify log... Hardcoded regexp
         checkLogItems();
