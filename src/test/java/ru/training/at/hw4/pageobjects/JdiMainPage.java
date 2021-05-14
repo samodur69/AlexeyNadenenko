@@ -76,10 +76,12 @@ public class JdiMainPage extends BasePage {
         }
     }
 
+    @Step(value = "Count benefit icons")
     public int countBenefitIcons() {
         return benefitsIcons.size();
     }
 
+    @Step(value = "Get text from Benefit elements")
     public List<String> getBenefitsTexts() {
         return getTextFromVisibleElements(benefitsText);
     }

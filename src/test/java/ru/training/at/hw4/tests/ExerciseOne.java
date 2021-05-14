@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import ru.training.at.hw4.pageobjects.JdiMainPage;
-
 import java.util.Arrays;
 import java.util.List;
 
