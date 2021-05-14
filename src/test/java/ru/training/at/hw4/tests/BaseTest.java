@@ -1,6 +1,7 @@
-package ru.training.at.hw4;
+package ru.training.at.hw4.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -24,6 +25,7 @@ public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
+    @Step(value = "Browser setup, read properties")
     public void browserSetUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -41,11 +43,13 @@ public abstract class BaseTest {
     }
 
     @AfterClass(alwaysRun = true)
+    @Step(value = "Browser tear down")
     public void browserTearDown() {
         driver.quit();
         driver = null;
     }
 
+    @Step(value = "Compare two List objects: actual web element and expected text")
     protected void listElementsComparator(List<String> actual, List<String> expected, String item) {
         Assert.assertEquals(actual.size(), expected.size(), item + " is not expected");
         SoftAssert softAssert = new SoftAssert();
