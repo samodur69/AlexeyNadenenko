@@ -3,7 +3,7 @@
 <suite name="Homework_4-All_Tests" parallel="false">
     <test name="Homework4">
         <classes>
-            <class name="ru.training.at.hw4.tests.ExerciseOneTest"/>
+            <class name="ru.training.at.hw4.tests.ExerciseOne"/>
 <!--            <class name="ru.training.at.hw4.tests.ExerciseTwoTest"/>-->
         </classes>
     </test>

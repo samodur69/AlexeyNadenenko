@@ -14,12 +14,13 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 @Owner(value = "Alexey Nadenenko")
-public class ExerciseOneTest extends BaseTest {
+public class ExerciseOne extends BaseTest {
 
+    @SuppressWarnings("checkstyle:MethodName")
     @Test
     @Story(value = "JDI test page UI testing")
     @Feature(value = "Check benefits and frames")
-    public void Exercise1Test() {
+    public void exerciseOneTest() {
 
         // Open page and login
         openPageAndCheckTitle(prop.getProperty("homepage_title"));
@@ -81,13 +82,13 @@ public class ExerciseOneTest extends BaseTest {
 
     @Step(value = "Check benefits: {amount} images, {benefitTexts} under images")
     public void checkBenefitsIconsAndTexts(List<String> benefitTexts, int amount) {
-        assertEquals(mainPage.countBenefitIcons(), 4,
+        assertEquals(mainPage.countBenefitIcons(), amount,
                 "wrong amount of benefits icons");
         listElementsComparator(mainPage
                 .getBenefitsTexts(), benefitTexts, "benefit text");
     }
 
-    @Step(value = "Switch to frame check if button exist and swith back to main window")
+    @Step(value = "Switch to frame check if button exist and switch back to main window")
     public void checkFrameExistSwitchToItAndBack() {
         assertTrue(mainPage.checkFrameIsDisplayed(), "expected frame does not exist");
         assertTrue(mainPage.switchToFrameAndCheckButton(), "expected button does not exist");
