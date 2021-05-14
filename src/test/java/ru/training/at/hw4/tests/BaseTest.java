@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
@@ -43,6 +44,7 @@ public abstract class BaseTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @Step(value = "Browser tear down")
