@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public abstract class BaseTest {
 
     protected JdiMainPage mainPage;
@@ -47,6 +50,19 @@ public abstract class BaseTest {
     public void browserTearDown() {
         driver.quit();
         driver = null;
+    }
+
+    @Step(value = "Open JDI Main Page and check title {title}")
+    public void openPageAndCheckTitle(String title) {
+        mainPage = new JdiMainPage(driver);
+        mainPage.openPage();
+        assertTrue(mainPage.checkTitle(title), "wrong title");
+    }
+
+    @Step(value = "Login as: {username} / {psw} . Assert that logged user Full Name is {expected}")
+    public void loginAndCheckLoggedUser(String username, String psw, String expected) {
+        mainPage.logIn(username, psw);
+        assertEquals(mainPage.getLoggedUserName(), expected);
     }
 
     @Step(value = "Compare two List objects: actual web element and expected text")

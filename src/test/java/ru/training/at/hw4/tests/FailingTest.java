@@ -8,11 +8,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ru.training.at.hw4.pageobjects.JdiDifferentPage;
+
 import java.util.List;
 import java.util.Locale;
 
 @Owner(value = "Alexey Nadenenko")
-public class ExerciseTwoTest extends BaseTest {
+public class FailingTest extends BaseTest {
 
     @Test
     @Story(value = "")
@@ -66,7 +67,7 @@ public class ExerciseTwoTest extends BaseTest {
         logAssert.assertTrue(actual.size() == 4);
         logAssert.assertTrue(actual.get(0).matches(".*(Colors).*(Yellow)"));
         logAssert.assertTrue(actual.get(1).matches(".*(metal).*(Selen)"));
-        logAssert.assertTrue(actual.get(2).matches(".*(Wind).*(true)"));
+        logAssert.assertTrue(actual.get(2).matches(".*(Fire).*(true)"));
         logAssert.assertTrue(actual.get(3).matches(".*(Water).*(true)"));
         logAssert.assertAll("wrong logs found");
     }

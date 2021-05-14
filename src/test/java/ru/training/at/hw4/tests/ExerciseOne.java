@@ -5,7 +5,6 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
-import ru.training.at.hw4.pageobjects.JdiMainPage;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,18 +57,7 @@ public class ExerciseOne extends BaseTest {
         checkLeftMenuItems(expected);
     }
 
-    @Step(value = "Open JDI Main Page and check title {title}")
-    public void openPageAndCheckTitle(String title) {
-        mainPage = new JdiMainPage(driver);
-        mainPage.openPage();
-        assertTrue(mainPage.checkTitle(title), "wrong title");
-    }
 
-    @Step(value = "Login as: {username} / {psw} . Assert that logged user Full Name is {expected}")
-    public void loginAndCheckLoggedUser(String username, String psw, String expected) {
-        mainPage.logIn(username, psw);
-        assertEquals(mainPage.getLoggedUserName(), expected);
-    }
 
     @Step(value = "Check header menu items and compare with {expectedHeaderMenu}")
     public void checkHeaderMenuItems(List<String> expectedHeaderMenu) {
