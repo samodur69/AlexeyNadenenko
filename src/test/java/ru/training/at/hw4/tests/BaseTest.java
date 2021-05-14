@@ -24,8 +24,8 @@ public abstract class BaseTest {
     protected Properties prop;
     protected WebDriver driver;
 
-    @BeforeClass(alwaysRun = true)
     @Step(value = "Browser setup, read properties")
+    @BeforeClass(alwaysRun = true)
     public void browserSetUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -42,8 +42,8 @@ public abstract class BaseTest {
         }
     }
 
-    @AfterClass(alwaysRun = true)
     @Step(value = "Browser tear down")
+    @AfterClass(alwaysRun = true)
     public void browserTearDown() {
         driver.quit();
         driver = null;

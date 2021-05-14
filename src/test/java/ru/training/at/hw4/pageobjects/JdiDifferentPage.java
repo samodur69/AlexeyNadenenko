@@ -34,12 +34,14 @@ public class JdiDifferentPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step(value = "Get title of current page ")
     public String getTitleOfPage() {
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.titleIs("Different Elements"));
         return driver.getTitle();
     }
 
+    @Step(value = "Select checkbox {item}")
     public void checkBoxSelect(String item) {
         for (WebElement el : checkBoxes) {
             if (el.getText().equals(item)) {
@@ -48,6 +50,7 @@ public class JdiDifferentPage extends BasePage {
         }
     }
 
+    @Step(value = "Select Radio box {item}")
     public void radioSelect(String item) {
         for (WebElement el : radioBoxes) {
             if (el.getText().equals(item)) {
@@ -56,11 +59,13 @@ public class JdiDifferentPage extends BasePage {
         }
     }
 
+    @Step(value = "Select {item} from dropdown selector")
     public void dropdownColorSelect(String item) {
         Select colors = new Select(colorSelect);
         colors.selectByVisibleText(item);
     }
 
+    @Step(value = "Get log items from page block")
     public List<String> getLogItems() {
         List<String> log = new ArrayList<>();
         new WebDriverWait(driver, 10)
