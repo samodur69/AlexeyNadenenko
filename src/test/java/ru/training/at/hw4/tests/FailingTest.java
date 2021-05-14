@@ -34,7 +34,7 @@ public class FailingTest extends BaseTest {
                 prop.getProperty("checkbox1"),
                 prop.getProperty("checkbox2"),
                 prop.getProperty("radio1"),
-                "black");
+                "Red");
 
         // verify log... Hardcoded regexp
         checkLogItems();
