@@ -1,9 +1,8 @@
-package ru.training.at.hw4.ex2;
+package ru.training.at.hw4.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import ru.training.at.hw4.BaseTest;
 import ru.training.at.hw4.pageobjects.JdiDifferentPage;
 import ru.training.at.hw4.pageobjects.JdiMainPage;
 
@@ -12,7 +11,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class JdiElementsSelectTest extends BaseTest {
+public class ExerciseTwoTest extends BaseTest {
 
     @Test
     public void openPageAndCheckTitleTest() {
