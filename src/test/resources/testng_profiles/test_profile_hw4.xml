@@ -4,16 +4,11 @@
     <listeners>
         <listener class-name="ru.training.at.hw4.tests.utils.ScreenshotMaker"/>
     </listeners>
-    <test name="Exercise 1, 2 for Allure report Demo">
+    <test name="Exercise 1, 2 and failing test for Allure report Demo">
         <classes>
             <class name="ru.training.at.hw4.tests.ExerciseOne"/>
             <class name="ru.training.at.hw4.tests.ExerciseTwoTest"/>
             <class name="ru.training.at.hw4.tests.FailingTest"/>
         </classes>
     </test>
-<!--    <test name="Test that should fail for Allure report Demo">-->
-<!--        <classes>-->
-<!--            <class name="ru.training.at.hw4.tests.FailingTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>
