@@ -15,8 +15,8 @@ import java.util.Locale;
 public class ExerciseTwoTest extends BaseTest {
 
     @Test
-    @Story(value = "")
-    @Feature(value = "")
+    @Story(value = "JDI test page UI testing")
+    @Feature(value = "Click to checkboxes and radio buttons and verify logs")
     public void exerciseTwoTest() {
         // Open page and login
         openPageAndCheckTitle(prop.getProperty("homepage_title"));
