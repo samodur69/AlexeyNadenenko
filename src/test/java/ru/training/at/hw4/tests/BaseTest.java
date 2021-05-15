@@ -50,7 +50,7 @@ public abstract class BaseTest {
     @AfterClass(alwaysRun = true)
     public void browserTearDown() {
         driver.quit();
-        //        driver = null;
+        driver = null;
     }
 
     @Step(value = "Open JDI Main Page and check title {title}")
