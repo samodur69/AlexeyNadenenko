@@ -18,7 +18,7 @@ public class FailingTest extends BaseTest {
     @Test
     @Story(value = "")
     @Feature(value = "")
-    public void exerciseTwoTest() {
+    public void failingTest() {
         // Open page and login
         openPageAndCheckTitle(prop.getProperty("homepage_title"));
         loginAndCheckLoggedUser(

@@ -12,8 +12,7 @@ public class ScreenshotMaker implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("wazzzup");
-        WebDriver driver = DriverManager.getInstance();
-        //        WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+        WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
         saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
     }
 

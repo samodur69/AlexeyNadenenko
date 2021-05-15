@@ -7,20 +7,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class DriverManager {
-
-    private static WebDriver driver;
-
-    private DriverManager(){
-    }
-
-    public static WebDriver getInstance() {
-        if (driver == null) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        }
+    public static WebDriver getChromeDriver() {
+        WebDriverManager.chromedriver().setup();
+        //        ChromeOptions options = new ChromeOptions();
+        //        options.addArguments("start-maximized");
+        //        return new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         return driver;
     }
 }
