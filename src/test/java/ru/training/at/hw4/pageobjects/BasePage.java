@@ -10,10 +10,9 @@ import java.util.List;
 
 abstract class BasePage {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     public BasePage(WebDriver driver) {
-        //        driver = new DriverManager().setupDriver();
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
