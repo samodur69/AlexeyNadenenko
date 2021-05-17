@@ -25,7 +25,7 @@ Run all test:
 
 `mvn clean test -P HW3`
 
-### Homework 3
+### Homework 4
 **Run Tests:**
 
 `mvn clean test -P HW4`

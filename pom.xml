@@ -25,6 +25,7 @@
         <profile>
             <id>add_subtract</id>
             <activation>
+
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
@@ -34,12 +35,14 @@
         <profile>
             <id>multiply_division</id>
             <properties>
+
                 <testXml>${testsuites}/test-multiply_division.xml</testXml>
             </properties>
         </profile>
         <profile>
             <id>other_tests</id>
             <properties>
+
                 <testXml>${testsuites}/test-sqrt.xml</testXml>
             </properties>
         </profile>
