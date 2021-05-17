@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Homework #4. Allure Report and Jenkins">
+    <listeners>
+        <listener class-name="ru.training.at.hw4.tests.utils.ScreenshotMaker"/>
+    </listeners>
+    <test name="Exercise 1, 2 and failing test for Allure report Demo">
+        <classes>
+            <class name="ru.training.at.hw4.tests.ExerciseOne"/>
+            <class name="ru.training.at.hw4.tests.ExerciseTwoTest"/>
+            <class name="ru.training.at.hw4.tests.FailingTest"/>
+        </classes>
+    </test>
+</suite>
