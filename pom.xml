@@ -19,6 +19,10 @@
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <checkstyle.version>8.41.1</checkstyle.version>
+        <cucumber.version>6.10.3</cucumber.version>
+        <lombok.version>1.18.20</lombok.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
     </properties>
 
     <profiles>
@@ -95,23 +99,35 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${selenium-java.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version>
+            <version>${webdrivermanager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
