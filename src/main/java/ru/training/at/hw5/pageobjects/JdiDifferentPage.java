@@ -31,6 +31,8 @@ public class JdiDifferentPage extends BasePage {
     public JdiDifferentPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOfAllElements(checkBoxes));
         PageFactory.initElements(driver, this);
     }
 
@@ -42,12 +44,13 @@ public class JdiDifferentPage extends BasePage {
     }
 
     @Step(value = "Select checkbox {item}")
-    public void checkBoxSelect(String item) {
+    public JdiDifferentPage checkBoxSelect(String item) {
         for (WebElement el : checkBoxes) {
             if (el.getText().equals(item)) {
                 el.click();
             }
         }
+        return this;
     }
 
     @Step(value = "Select Radio box {item}")
