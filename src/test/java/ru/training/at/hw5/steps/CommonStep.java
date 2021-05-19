@@ -8,6 +8,7 @@ import ru.training.at.hw5.context.User;
 import ru.training.at.hw5.pageobjects.JdiDifferentPage;
 import ru.training.at.hw5.pageobjects.JdiHeaderMenu;
 import ru.training.at.hw5.pageobjects.JdiMainPage;
+import ru.training.at.hw5.pageobjects.JdiUserTable;
 
 public class CommonStep {
 
@@ -33,9 +34,7 @@ public class CommonStep {
     public void clickOnButtonInHeader(String headerMenuButton) {
         new JdiHeaderMenu(driver)
                 .clickHeaderMenuButton(headerMenuButton);
-        //        System.out.println(headerMenuButton);
     }
-
 
     @When("I click on {string} button in Service dropdown")
     public void clickOnButtonInServiceDropdown(String item) {
@@ -60,5 +59,10 @@ public class CommonStep {
     public void selectColorDropdownOnDifferentPage(String item) {
         new JdiDifferentPage(driver)
                 .dropdownColorSelect(item);
+    }
+
+    @When("I select 'vip' checkbox for {string}")
+    public void selectCheckBoxVipOnUserTablePage(String username) {
+        new JdiUserTable(driver).selectCheckBoxOnUserTablePage(username);
     }
 }
