@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import ru.training.at.hw5.context.TestContext;
-import ru.training.at.hw5.context.User;
+import ru.training.at.hw5.enity.User;
 import ru.training.at.hw5.pageobjects.JdiDifferentPage;
 import ru.training.at.hw5.pageobjects.JdiHeaderMenu;
 import ru.training.at.hw5.pageobjects.JdiMainPage;

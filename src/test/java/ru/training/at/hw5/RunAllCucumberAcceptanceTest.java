@@ -7,5 +7,4 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/resources/cucumber_features"},
         tags = "@Positive")
 public class RunAllCucumberAcceptanceTest extends AbstractTestNGCucumberTests {
-
 }

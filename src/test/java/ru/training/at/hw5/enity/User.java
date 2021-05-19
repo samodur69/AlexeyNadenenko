@@ -1,4 +1,4 @@
-package ru.training.at.hw5.context;
+package ru.training.at.hw5.enity;
 
 import lombok.Getter;
 
