@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class Test {
 
     public static void main(String... args) throws IOException {
-        String filepath = "src/test/resources/JDI_ex8_metalsColorsDataSet.json";
+        String filepath = "src/test/resources/test.json";
         Gson gson = new Gson();
         FileInputStream file = new FileInputStream(filepath);
         MetalAndColor test = gson.fromJson(
