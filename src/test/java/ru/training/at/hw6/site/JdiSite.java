@@ -1,15 +1,11 @@
 package ru.training.at.hw6.site;
 
 import com.epam.jdi.light.elements.common.UIElement;
-import com.epam.jdi.light.elements.complex.JList;
 import com.epam.jdi.light.elements.complex.Menu;
-import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
-import org.openqa.selenium.WebElement;
-import ru.training.at.hw6.entities.User;
+import com.epam.jdi.light.ui.html.elements.common.Button;
 import ru.training.at.hw6.site.forms.LoginForm;
 import ru.training.at.hw6.site.pages.HomePage;
 import ru.training.at.hw6.site.pages.MetalsColorsPage;
@@ -32,5 +28,8 @@ public class JdiSite {
 
     @Css("ul.uui-navigation.nav.navbar-nav.m-l8")
     public static Menu headerMenu;
+
+    @FindBy(className = "logout")
+    public static Button logoutButton;
 
 }
