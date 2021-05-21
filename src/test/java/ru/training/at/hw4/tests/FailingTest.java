@@ -23,8 +23,8 @@ public class FailingTest extends BaseTest {
         openPageAndCheckTitle(prop.getProperty("homepage_title"));
         loginAndCheckLoggedUser(
                 prop.getProperty("LOGIN"),
-                "1234",
-                prop.getProperty("USERNAME"));
+                prop.getProperty("PSW"),
+                prop.getProperty("FAIL_USERNAME"));
 
         navigateToDiffPage("Different Elements");
 
