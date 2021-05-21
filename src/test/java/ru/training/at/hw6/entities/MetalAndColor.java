@@ -41,15 +41,6 @@ public class MetalAndColor extends DataClass<MetalAndColor> {
             "Gold",
             veget);
 
-//    @Override
-//    public String toString() {
-//        return String
-//                .format("radio: %s %s"
-//                        + "\nColor: %s"
-//                        + "\nMetal: %s", radio[0], radio[1], color, metal);
-//    }
-
-
     @Override
     public String toString() {
         return "MetalAndColor{"
