@@ -3,5 +3,5 @@
     "elements": ["Water", "Fire"],
     "color": "Red",
     "metals": "Gold",
-    "vegetables": ["Cucumber"]
+    "vegetables": ["Cucumber", "Water"]
 }

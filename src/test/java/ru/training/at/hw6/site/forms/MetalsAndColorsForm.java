@@ -40,17 +40,13 @@ public class MetalsAndColorsForm extends Form<MetalAndColor> {
     @UI("#submit-button")
     public Button submitButton;
 
-    /**
-     * @param entity Specify entity
-     *               Fill all SetValue elements and click on Button “submit” <br>
-     */
     @Override
     public void submit(MetalAndColor entity) {
-        odd.select(entity.getOdd());
-        even.select(entity.getEven());
-        checkboxElements.select(entity.getCheckboxElements());
+        odd.select("" + entity.getSummary()[0]);
+        even.select("" + entity.getSummary()[1]);
+        checkboxElements.select(entity.getElements());
         colors.select(entity.getColor());
-        metal.select(entity.getMetal());
+        metal.select(entity.getMetals());
         vegetables.select("Vegetables");
         vegetables.select(entity.getVegetables());
         submitButton.click();
