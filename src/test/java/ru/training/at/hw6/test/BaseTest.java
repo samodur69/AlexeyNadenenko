@@ -13,7 +13,7 @@ public interface BaseTest {
     @BeforeSuite(alwaysRun = true)
     default void setUp() {
         PageFactory.initSite(JdiSite.class);
-        openSite(JdiSite.class);
+//        openSite(JdiSite.class);
     }
 
     @AfterSuite(alwaysRun = true)
