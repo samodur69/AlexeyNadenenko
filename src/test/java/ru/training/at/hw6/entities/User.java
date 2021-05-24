@@ -5,9 +5,9 @@ import lombok.Getter;
 
 @Getter
 public class User extends DataClass<User> {
-    private String login;
-    private String password;
-    private String username;
+    private final String login;
+    private final String password;
+    private final String username;
 
     public static User ROMAN = new User(
             "Roman",
@@ -18,9 +18,5 @@ public class User extends DataClass<User> {
         this.login = login;
         this.password = password;
         this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
     }
 }

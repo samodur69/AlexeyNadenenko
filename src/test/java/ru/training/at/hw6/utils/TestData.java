@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import org.testng.annotations.DataProvider;
 import ru.training.at.hw6.entities.MetalAndColor;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
@@ -18,7 +19,8 @@ public class TestData {
         FileReader file = null;
         try {
             file =
-                    new FileReader("src/test/resources/JDI_ex8_metalsColorsDataSet.json");
+                    //                    new FileReader("src/test/resources/JDI_ex8_metalsColorsDataSet.json");
+                    new FileReader("src/test/resources/onedata.json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

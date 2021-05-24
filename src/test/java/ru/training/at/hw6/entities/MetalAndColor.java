@@ -16,9 +16,6 @@ public class MetalAndColor extends DataClass<MetalAndColor> {
     String metals;
     String[] vegetables;
 
-    public MetalAndColor() {
-    }
-
     public MetalAndColor(int[] summary,
                          String[] elements,
                          String color,
@@ -30,16 +27,6 @@ public class MetalAndColor extends DataClass<MetalAndColor> {
         this.metals = metal;
         this.vegetables = vegetables;
     }
-
-    static int[] test1 = {7, 8};
-    static String[] chk1 = {"Water", "Wind"};
-    static String[] veget = {"Tomato", "Vegetables", "Onion"};
-
-    public static MetalAndColor testEntity = new MetalAndColor(test1,
-            chk1,
-            "Yellow",
-            "Gold",
-            veget);
 
     @Override
     public String toString() {
