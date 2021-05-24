@@ -19,17 +19,18 @@ public class TestData {
         FileReader file = null;
         try {
             file =
-                    //                    new FileReader("src/test/resources/JDI_ex8_metalsColorsDataSet.json");
-                    new FileReader("src/test/resources/onedata.json");
+                    new FileReader("src/test/resources/JDI_ex8_metalsColorsDataSet.json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         Type datasets =
                 new TypeToken<HashMap<String, MetalAndColor>>() {
                 }.getType();
-        HashMap<String, MetalAndColor> expected = gson.fromJson(file, datasets);
-        for (Map.Entry<String, MetalAndColor> el : expected.entrySet()) {
-            testData.add(el.getValue());
+        if (file != null) {
+            HashMap<String, MetalAndColor> expected = gson.fromJson(file, datasets);
+            for (Map.Entry<String, MetalAndColor> el : expected.entrySet()) {
+                testData.add(el.getValue());
+            }
         }
         return testData
                 .stream()
