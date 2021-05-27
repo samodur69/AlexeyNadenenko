@@ -24,31 +24,11 @@ public class Results extends Section {
         return Integer.parseInt(summary.getTextForce().split(": ")[1]);
     }
 
-    public static String[] getElements() {
-        return elements
-                .getTextForce()
-                .split(": ")[1]
-                .split(", "
-                );
+    public static String getTextElementValue(Text element) {
+        return element.getTextForce().split(": ")[1];
     }
 
-    public static String getColor() {
-        return color
-                .getTextForce()
-                .split(": ")[1];
-    }
-
-    public static String getMetal() {
-        return metal
-                .getTextForce()
-                .split(": ")[1];
-    }
-
-    public static String[] getVegetables() {
-        return vegetables
-                .getTextForce()
-                .split(": ")[1]
-                .split(", "
-                );
+    public static String[] getTextElementValuesArray(Text element) {
+        return element.getTextForce().split(": ")[1].split(", ");
     }
 }
