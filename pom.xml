@@ -25,6 +25,10 @@
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <jdi-light.version>1.3.12</jdi-light.version>
+        <gson.version>2.8.6</gson.version>
+        <rest-assured.version>4.4.0</rest-assured.version>
+        <hamcrest-core.version>2.2</hamcrest-core.version>
+        <jsonschema2pojo-plugin.version>1.0.2</jsonschema2pojo-plugin.version>
     </properties>
 
     <profiles>
@@ -97,10 +101,19 @@
         <profile>
             <id>HW6</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <testXml>${testsuites}/test_profile_hw6.xml</testXml>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW_API</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testXml>${testsuites}/test_profile_hw_api.xml</testXml>
             </properties>
         </profile>
     </profiles>
@@ -158,7 +171,18 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.6</version>
+            <version>${gson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>${hamcrest-core.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -223,6 +247,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--API Test plugin-->
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>${jsonschema2pojo-plugin.version}</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/resources/schemes</sourceDirectory>
+                    <outputDirectory>${basedir}/src/main/java/ru/training/at/hwapi</outputDirectory>
+                    <targetPackage>beans</targetPackage>
+                    <addCompileSourceRoot>true</addCompileSourceRoot>
+                    <sourceType>json</sourceType>
+                    <annotationStyle>gson</annotationStyle>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
     <reporting>
