@@ -14,7 +14,7 @@ import ru.training.at.hwapi.beans.TrelloBoard;
 import java.util.HashMap;
 import java.util.Map;
 
-import static ru.training.at.hwapi.Constants.*;
+import static ru.training.at.hwapi.constants.AuthKeys.*;
 import static org.hamcrest.Matchers.*;
 
 public class TrelloBoardServiceObj {

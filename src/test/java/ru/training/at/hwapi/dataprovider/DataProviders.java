@@ -6,11 +6,16 @@ public class DataProviders {
 
     @DataProvider
     public static Object[][] boardName() {
-        return new Object[][] {{"TestBoardADA"}};
+        return new Object[][]{{"TestBoardADA"}};
     }
 
     @DataProvider
     public static Object[][] boardDescription() {
-        return new Object[][] {{"TestBoard Description"}};
+        return new Object[][]{{"TestBoard Description"}};
+    }
+
+    @DataProvider
+    public static Object[][] listName() {
+        return new Object[][]{{"QA Review Expected"}};
     }
 }

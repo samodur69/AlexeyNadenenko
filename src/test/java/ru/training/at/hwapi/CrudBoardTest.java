@@ -4,6 +4,7 @@ import io.restassured.http.Method;
 import org.hamcrest.CoreMatchers;
 import org.testng.annotations.Test;
 import ru.training.at.hwapi.beans.TrelloBoard;
+import ru.training.at.hwapi.constants.Endpoints;
 import ru.training.at.hwapi.dataprovider.DataProviders;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,17 +18,7 @@ public class CrudBoardTest extends BaseTest {
     @Test(dataProviderClass = DataProviders.class,
             dataProvider = "boardName")
     public void createBoard(String boardName) {
-        newBoard = getBoardInfo(
-                requestBuilder()
-                        .setName(boardName)
-                        .setMethod(Method.POST)
-                        .buildRequest()
-                        .sendRequest(Endpoints.BOARDS)
-                        .then()
-                        .assertThat()
-                        .spec(goodResponseSpec())
-                        .extract().response()
-        );
+        newBoard = createTestBoard(boardName);
         assertThat(newBoard.getName(), CoreMatchers.equalTo(boardName));
     }
 
@@ -62,7 +53,6 @@ public class CrudBoardTest extends BaseTest {
         );
         assertThat(getBoard.getName(), equalTo(newBoard.getName()));
     }
-
 
     @Test(dependsOnMethods = "getBoard")
     public void deleteBoard() {

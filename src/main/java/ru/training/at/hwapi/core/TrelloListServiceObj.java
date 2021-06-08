@@ -11,20 +11,21 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
-import ru.training.at.hwapi.beans.TrelloBoard;
+import ru.training.at.hwapi.beans.BoardList;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.lessThan;
-import static ru.training.at.hwapi.Constants.KEY;
-import static ru.training.at.hwapi.Constants.TOKEN;
+import static ru.training.at.hwapi.constants.AuthKeys.KEY;
+import static ru.training.at.hwapi.constants.AuthKeys.TOKEN;
 
 public class TrelloListServiceObj {
 
     //Builder Pattern
     private Method requestMethod;
-    private static Map<String, String> parameters;
+    private static Map<String, String> parameters = new HashMap<>();
     private static Map<String, Object> path = new HashMap<>();
 
     private TrelloListServiceObj(Map<String, String> parameters, Method method) {
@@ -37,7 +38,6 @@ public class TrelloListServiceObj {
     }
 
     public static class ApiRequestBuilder {
-        private Map<String, String> parameters = new HashMap<>();
         private Method requestMethod = Method.GET;
 
         public ApiRequestBuilder setMethod(Method method) {
@@ -55,11 +55,6 @@ public class TrelloListServiceObj {
             return this;
         }
 
-        public ApiRequestBuilder setDescr(String descr) {
-            parameters.put("desc", descr);
-            return this;
-        }
-
         public TrelloListServiceObj buildRequest() {
             parameters.put("key", KEY);
             parameters.put("token", TOKEN);
@@ -73,7 +68,7 @@ public class TrelloListServiceObj {
                 .basePath(pathUri)
                 .pathParams(path)
                 .queryParams(parameters)
-                .request(requestMethod, pathUri)
+                .request(requestMethod)
                 .prettyPeek();
     }
 
@@ -100,13 +95,21 @@ public class TrelloListServiceObj {
                 .build();
     }
 
-    public static TrelloBoard getBoardInfo(Response response) {
-        TrelloBoard board = new Gson()
-                .fromJson(response
-                                .asString()
+    public static BoardList getListInfo(Response response) {
+        BoardList list = new Gson()
+                .fromJson(response.asString()
                                 .trim(),
-                        new TypeToken<TrelloBoard>() {
+                        new TypeToken<BoardList>() {
                         }.getType());
-        return board;
+        return list;
+    }
+
+    public static List<BoardList> getListOfBoardLists(Response response) {
+        List<BoardList> list = new Gson()
+                .fromJson(response.asString()
+                                .trim(),
+                        new TypeToken<List<BoardList>>() {
+                        }.getType());
+        return list;
     }
 }
