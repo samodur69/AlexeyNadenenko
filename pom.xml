@@ -184,7 +184,17 @@
             <version>${hamcrest-core.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <!--        API json2pojo   -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.3</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -254,8 +264,8 @@
                 <version>${jsonschema2pojo-plugin.version}</version>
                 <configuration>
                     <sourceDirectory>${basedir}/src/main/resources/schemes</sourceDirectory>
-                    <outputDirectory>${basedir}/src/main/java/ru/training/at/hwapi</outputDirectory>
-                    <targetPackage>beans</targetPackage>
+                    <outputDirectory>${basedir}/src/main/java/</outputDirectory>
+                    <targetPackage>ru.training.at.hwapi.beans</targetPackage>
                     <addCompileSourceRoot>true</addCompileSourceRoot>
                     <sourceType>json</sourceType>
                     <annotationStyle>gson</annotationStyle>
@@ -267,6 +277,7 @@
                         </goals>
                     </execution>
                 </executions>
+
             </plugin>
 
         </plugins>

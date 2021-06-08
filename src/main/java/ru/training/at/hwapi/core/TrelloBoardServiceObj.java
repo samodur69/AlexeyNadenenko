@@ -5,17 +5,20 @@ import com.google.gson.reflect.TypeToken;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.*;
+import io.restassured.http.ContentType;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
-import io.restassured.specification.*;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
 import ru.training.at.hwapi.beans.TrelloBoard;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static ru.training.at.hwapi.constants.AuthKeys.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.lessThan;
+import static ru.training.at.hwapi.constants.AuthKeys.KEY;
+import static ru.training.at.hwapi.constants.AuthKeys.TOKEN;
 
 public class TrelloBoardServiceObj {
 
@@ -96,12 +99,9 @@ public class TrelloBoardServiceObj {
     }
 
     public static TrelloBoard getBoardInfo(Response response) {
-        TrelloBoard board = new Gson()
-                .fromJson(response
+        return new Gson().fromJson(response
                                 .asString()
                                 .trim(),
-                        new TypeToken<TrelloBoard>() {
-                        }.getType());
-        return board;
+                        new TypeToken<TrelloBoard>() {}.getType());
     }
 }

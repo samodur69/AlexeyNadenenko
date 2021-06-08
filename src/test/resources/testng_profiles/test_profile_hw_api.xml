@@ -3,7 +3,8 @@
 <suite name="Homework API. ">
     <test name="Trello API Board Test">
         <classes>
-            <class name="ru.training.at.hwapi.CrudBoardTest"/>
+            <class name="ru.training.at.hwapi.tests.CrudBoardTest"/>
+            <class name="ru.training.at.hwapi.tests.BoardListsTest"></class>
         </classes>
     </test>
 </suite>

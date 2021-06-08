@@ -1,7 +1,8 @@
-package ru.training.at.hwapi;
+package ru.training.at.hwapi.tests;
 
 import io.restassured.http.Method;
 import org.hamcrest.CoreMatchers;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import ru.training.at.hwapi.beans.BoardList;
 import ru.training.at.hwapi.beans.TrelloBoard;
@@ -12,7 +13,6 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static ru.training.at.hwapi.core.TrelloBoardServiceObj.goodResponseSpec;
 import static ru.training.at.hwapi.core.TrelloListServiceObj.*;
 
 public class BoardListsTest extends BaseTest {
@@ -35,7 +35,7 @@ public class BoardListsTest extends BaseTest {
                         .setMethod(Method.GET)
                         .setBoardId(newBoard.getId())
                         .buildRequest()
-                        .sendRequest(Endpoints.LISTS)
+                        .sendRequest(Endpoints.BOARDS_LISTS)
                         .then()
                         .assertThat()
                         .spec(goodResponseSpec())
@@ -53,7 +53,7 @@ public class BoardListsTest extends BaseTest {
                 .setBoardId(newBoard.getId())
                 .setName(listName)
                 .buildRequest()
-                .sendRequest(Endpoints.LISTS)
+                .sendRequest(Endpoints.BOARDS_LISTS)
                 .then()
                 .assertThat()
                 .spec(goodResponseSpec())
@@ -62,8 +62,24 @@ public class BoardListsTest extends BaseTest {
         assertThat(newList.getName(), equalTo(listName));
     }
 
-    @Test
-    public void deleteListOnBoard() {
 
+    // @DEPRECATED
+    //    @Test(dependsOnMethods = "createListOnBoard")
+    //    public void archiveListOnBoard() {
+    //        newList.setClosed(true);
+    //        requestBuilder()
+    //                .setMethod(Method.PUT)
+    //                .setListId(newList.getId())
+    //                .buildRequest()
+    //                .sendRequest(Endpoints.LISTS + "/closed")
+    //                .then()
+    //                .assertThat()
+    //                .spec(goodResponseSpec());
+    //    }
+
+    @AfterClass
+    public void tearDown() {
+        deleteBoard(newBoard.getId());
     }
+
 }

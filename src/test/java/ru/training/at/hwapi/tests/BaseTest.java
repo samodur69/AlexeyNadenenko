@@ -1,4 +1,4 @@
-package ru.training.at.hwapi;
+package ru.training.at.hwapi.tests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -16,8 +16,7 @@ public class BaseTest {
     }
 
     public TrelloBoard createTestBoard(String boardName) {
-        TrelloBoard board = getBoardInfo(
-                requestBuilder()
+        return getBoardInfo(requestBuilder()
                         .setName(boardName)
                         .setMethod(Method.POST)
                         .buildRequest()
@@ -27,6 +26,16 @@ public class BaseTest {
                         .spec(goodResponseSpec())
                         .extract().response()
         );
-        return board;
+    }
+
+    public void deleteBoard(String boardId) {
+        requestBuilder()
+                .setMethod(Method.DELETE)
+                .buildRequest()
+                .sendRequest(Endpoints.BOARDS + boardId)
+                .then()
+                .assertThat()
+                .spec(goodResponseSpec())
+                .extract().response();
     }
 }

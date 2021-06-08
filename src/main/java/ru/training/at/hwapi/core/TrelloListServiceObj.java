@@ -24,12 +24,15 @@ import static ru.training.at.hwapi.constants.AuthKeys.TOKEN;
 public class TrelloListServiceObj {
 
     //Builder Pattern
-    private Method requestMethod;
-    private static Map<String, String> parameters = new HashMap<>();
-    private static Map<String, Object> path = new HashMap<>();
+    private final Method requestMethod;
+    private final Map<String, String> parameters;
+    private final Map<String, String> path;
 
-    private TrelloListServiceObj(Map<String, String> parameters, Method method) {
+    private TrelloListServiceObj(Map<String, String> parameters,
+                                 Method method,
+                                 Map<String, String> path) {
         this.parameters = parameters;
+        this.path = path;
         this.requestMethod = method;
     }
 
@@ -38,6 +41,8 @@ public class TrelloListServiceObj {
     }
 
     public static class ApiRequestBuilder {
+        private Map<String, String> path = new HashMap<>();
+        private Map<String, String> parameters = new HashMap<>();
         private Method requestMethod = Method.GET;
 
         public ApiRequestBuilder setMethod(Method method) {
@@ -50,6 +55,11 @@ public class TrelloListServiceObj {
             return this;
         }
 
+        //        public ApiRequestBuilder setListId(String id) {
+        //            path.put("id", id);
+        //            return this;
+        //        }
+
         public ApiRequestBuilder setName(String name) {
             parameters.put("name", name);
             return this;
@@ -58,7 +68,7 @@ public class TrelloListServiceObj {
         public TrelloListServiceObj buildRequest() {
             parameters.put("key", KEY);
             parameters.put("token", TOKEN);
-            return new TrelloListServiceObj(parameters, requestMethod);
+            return new TrelloListServiceObj(parameters, requestMethod, path);
         }
     }
 
@@ -96,20 +106,16 @@ public class TrelloListServiceObj {
     }
 
     public static BoardList getListInfo(Response response) {
-        BoardList list = new Gson()
-                .fromJson(response.asString()
+        return new Gson().fromJson(response.asString()
                                 .trim(),
-                        new TypeToken<BoardList>() {
-                        }.getType());
-        return list;
+                        new TypeToken<BoardList>() {}.getType());
     }
 
     public static List<BoardList> getListOfBoardLists(Response response) {
-        List<BoardList> list = new Gson()
+        return new Gson()
                 .fromJson(response.asString()
                                 .trim(),
                         new TypeToken<List<BoardList>>() {
                         }.getType());
-        return list;
     }
 }

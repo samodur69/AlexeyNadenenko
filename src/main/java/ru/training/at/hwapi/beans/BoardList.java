@@ -4,8 +4,6 @@ package ru.training.at.hwapi.beans;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Objects;
-
 public class BoardList {
 
     @SerializedName("id")
@@ -89,40 +87,37 @@ public class BoardList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(BoardList.class
-                .getName())
-                .append('@')
-                .append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(BoardList.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
+        sb.append(((this.id == null)?"<null>":this.id));
         sb.append(',');
         sb.append("name");
         sb.append('=');
-        sb.append(((this.name == null) ? "<null>" : this.name));
+        sb.append(((this.name == null)?"<null>":this.name));
         sb.append(',');
         sb.append("closed");
         sb.append('=');
-        sb.append(((this.closed == null) ? "<null>" : this.closed));
+        sb.append(((this.closed == null)?"<null>":this.closed));
         sb.append(',');
         sb.append("pos");
         sb.append('=');
-        sb.append(((this.pos == null) ? "<null>" : this.pos));
+        sb.append(((this.pos == null)?"<null>":this.pos));
         sb.append(',');
         sb.append("softLimit");
         sb.append('=');
-        sb.append(((this.softLimit == null) ? "<null>" : this.softLimit));
+        sb.append(((this.softLimit == null)?"<null>":this.softLimit));
         sb.append(',');
         sb.append("idBoard");
         sb.append('=');
-        sb.append(((this.idBoard == null) ? "<null>" : this.idBoard));
+        sb.append(((this.idBoard == null)?"<null>":this.idBoard));
         sb.append(',');
         sb.append("subscribed");
         sb.append('=');
-        sb.append(((this.subscribed == null) ? "<null>" : this.subscribed));
+        sb.append(((this.subscribed == null)?"<null>":this.subscribed));
         sb.append(',');
-        if (sb.charAt((sb.length() - 1)) == ',') {
-            sb.setCharAt((sb.length() - 1), ']');
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
         } else {
             sb.append(']');
         }
@@ -132,13 +127,13 @@ public class BoardList {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result * 31) + ((this.subscribed == null) ? 0 : this.subscribed.hashCode()));
-        result = ((result * 31) + ((this.idBoard == null) ? 0 : this.idBoard.hashCode()));
-        result = ((result * 31) + ((this.pos == null) ? 0 : this.pos.hashCode()));
-        result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
-        result = ((result * 31) + ((this.closed == null) ? 0 : this.closed.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
-        result = ((result * 31) + ((this.softLimit == null) ? 0 : this.softLimit.hashCode()));
+        result = ((result* 31)+((this.subscribed == null)? 0 :this.subscribed.hashCode()));
+        result = ((result* 31)+((this.idBoard == null)? 0 :this.idBoard.hashCode()));
+        result = ((result* 31)+((this.pos == null)? 0 :this.pos.hashCode()));
+        result = ((result* 31)+((this.name == null)? 0 :this.name.hashCode()));
+        result = ((result* 31)+((this.closed == null)? 0 :this.closed.hashCode()));
+        result = ((result* 31)+((this.id == null)? 0 :this.id.hashCode()));
+        result = ((result* 31)+((this.softLimit == null)? 0 :this.softLimit.hashCode()));
         return result;
     }
 
@@ -151,13 +146,7 @@ public class BoardList {
             return false;
         }
         BoardList rhs = ((BoardList) other);
-        return (((((((Objects.equals(this.subscribed, rhs.subscribed))
-                && (Objects.equals(this.idBoard, rhs.idBoard)))
-                && (Objects.equals(this.pos, rhs.pos)))
-                && (Objects.equals(this.name, rhs.name)))
-                && (Objects.equals(this.closed, rhs.closed)))
-                && (Objects.equals(this.id, rhs.id)))
-                && (Objects.equals(this.softLimit, rhs.softLimit)));
+        return ((((((((this.subscribed == rhs.subscribed)||((this.subscribed!= null)&&this.subscribed.equals(rhs.subscribed)))&&((this.idBoard == rhs.idBoard)||((this.idBoard!= null)&&this.idBoard.equals(rhs.idBoard))))&&((this.pos == rhs.pos)||((this.pos!= null)&&this.pos.equals(rhs.pos))))&&((this.name == rhs.name)||((this.name!= null)&&this.name.equals(rhs.name))))&&((this.closed == rhs.closed)||((this.closed!= null)&&this.closed.equals(rhs.closed))))&&((this.id == rhs.id)||((this.id!= null)&&this.id.equals(rhs.id))))&&((this.softLimit == rhs.softLimit)||((this.softLimit!= null)&&this.softLimit.equals(rhs.softLimit))));
     }
 
 }

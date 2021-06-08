@@ -1,4 +1,4 @@
-package ru.training.at.hwapi;
+package ru.training.at.hwapi.tests;
 
 import io.restassured.http.Method;
 import org.hamcrest.CoreMatchers;
@@ -56,14 +56,7 @@ public class CrudBoardTest extends BaseTest {
 
     @Test(dependsOnMethods = "getBoard")
     public void deleteBoard() {
-        requestBuilder()
-                .setMethod(Method.DELETE)
-                .buildRequest()
-                .sendRequest(Endpoints.BOARDS + newBoard.getId())
-                .then()
-                .assertThat()
-                .spec(goodResponseSpec())
-                .extract().response();
+        deleteBoard(newBoard.getId());
 
         requestBuilder()
                 .setMethod(Method.GET)
