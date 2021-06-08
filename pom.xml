@@ -269,6 +269,8 @@
                     <addCompileSourceRoot>true</addCompileSourceRoot>
                     <sourceType>json</sourceType>
                     <annotationStyle>gson</annotationStyle>
+                    <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                    <includeToString>false</includeToString>
                 </configuration>
                 <executions>
                     <execution>
